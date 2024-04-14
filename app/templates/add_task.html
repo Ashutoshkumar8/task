@@ -1,0 +1,29 @@
+{% extends 'nave.html' %}
+
+{% block content %}
+<div class="box">
+    <div>
+        <h1>Add task</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <select name="user" id="" aria-placeholder="select user">
+                <option value="">select user</option>
+
+
+
+                {% for user in userdata %}
+                <option value="{{user.name}}">{{user.name}}</option>
+                {% endfor %}
+            </select><br><br>
+            <textarea name="task" id="" cols="30" rows="10" placeholder="assign task"></textarea> <br><br>
+            <select name="status" id="">
+                <option value="">status</option>
+                <option value="pending">pending</option>
+                <option value="done">done</option>
+                </option>
+            </select><br><br>
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
